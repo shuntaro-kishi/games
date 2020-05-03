@@ -1,20 +1,25 @@
 <template lang="pug">
   div.tic-tac-toe
     h2.-title 三目並べ
-    Board(
-      :boardStatus="boardStatus"
-      :xIsNext="xIsNext"
-      @squareClicked="squareClicked"
+    show-status(
+      :board-status="boardStatus"
+      :x-is-next="xIsNext"
+    )
+    board(
+      :board-status="boardStatus"
+      @square-clicked="squareClicked"
     ).-board
 
 </template>
 
 <script>
 import Board from '~/components/TicTacToe/board.vue'
+import ShowStatus from '~/components/TicTacToe/ShowStatus.vue'
 
 export default {
   components: {
-    Board
+    Board,
+    ShowStatus
   },
   data () {
     return {
@@ -23,7 +28,8 @@ export default {
         Array(3).fill(null),
         Array(3).fill(null)
       ],
-      xIsNext: true
+      xIsNext: true,
+      finished: false
     }
   },
   methods: {
@@ -40,5 +46,4 @@ export default {
 <style lang="sass" scoped>
 .tic-tac-toe
   text-align: center
-  .-board
 </style>

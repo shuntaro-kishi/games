@@ -9,9 +9,14 @@ export default {
   props: {
     value: { default: null, type: String, required: false }
   },
+  computed: {
+    finished () {
+      return this.$store.state.games.TicTacToe.finished
+    }
+  },
   methods: {
     onClick () {
-      if (!this.value) {
+      if (!this.value && !this.finished) {
         this.$emit('clicked')
       }
     }

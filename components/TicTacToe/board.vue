@@ -17,12 +17,11 @@ export default {
     Square
   },
   props: {
-    boardStatus: { default: () => [], type: Array, required: true },
-    xIsNext: { default: true, type: Boolean, required: true }
+    boardStatus: { default: () => [], type: Array, required: true }
   },
   methods: {
     squareClicked (n, m) {
-      this.$emit('squareClicked', n, m)
+      this.$emit('square-clicked', n, m)
     }
   }
 }
